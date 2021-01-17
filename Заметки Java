@@ -99,8 +99,7 @@ Collection
                 pop() - достает с вершины стека и удаляет
                 peek() - достает с вершины стека без удаления
                 push() - добавление элемента на вершину стека
-               
-               
+
     Map
         HashMap
             Элементами HashMap являются пары ключ/значение. HashMap не запоминает порядок добавления элементов. Его методы работают очень быстро.
@@ -138,8 +137,7 @@ Collection
             for (Map.Entry<DataType, DataType> entry : map.entrySet()){
                 System.out.println(entry.getKey() + " : " + entry.getValue());
             }
-            
-    
+
     "Методы equals и hashcode"
             Если переопределяется equals(), то переопеределите и hashcode().
             Результат нескольких выполнений метода hashcode() для одного и того же обьекта должен быть одинаковым.

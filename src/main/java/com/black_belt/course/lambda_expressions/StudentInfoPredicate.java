@@ -13,15 +13,16 @@ public class StudentInfoPredicate {
         Filter<Student> fi = new Filter<>();
         //fi.getStudents(stList, (s) -> s.getCourse() > 1);
 
-        Predicate<Student> p1 = student -> student.getCourse() > 1;
-        Predicate<Student> p2 = student -> student.getName().charAt(0) == 'P';
+        Predic<Student> p1 = student -> student.getCourse() > 1;
+        Predic<Student> p2 = student -> student.getName().charAt(0) == 'P';
 
+        //fi.getStudents(stList, p1.and(p2));
         fi.getStudents(stList, p1.and(p2));
     }
 }
 
 class Filter<T> {
-    void getStudents(List<? extends T> list, Predicate<T> pr) {
+    void getStudents(List<? extends T> list, Predic<T> pr) {
         for (T val : list) {
             if (pr.test(val)) {
                 System.out.println(val);
@@ -30,18 +31,15 @@ class Filter<T> {
     }
 }
 
-
-/*
-interface Predic<T>{
-
+interface Predic<T> {
     boolean test(T t);
 
-    default Predic<T> and(Predic<T> other) {
-      return new Predic<T>() {
+    default Predic<T> and(Predic<? super T> other) {
+        return new Predic<T>() {
             @Override
             public boolean test(T t) {
-                return test(t) && other.test(t);
+                return Predic.this.test(t) && other.test(t);
             }
         };
     }
-}*/
+}
