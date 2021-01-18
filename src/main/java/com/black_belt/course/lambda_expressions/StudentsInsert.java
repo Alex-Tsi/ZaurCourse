@@ -2,11 +2,13 @@ package com.black_belt.course.lambda_expressions;
 
 import lombok.var;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class StudentsInsert {
 
-    void insert(List<Student> list) {
+    static List<Student> insert() {
+        List<Student> list = new ArrayList<>();
         var st1 = new Student("Ivan", 3, 8.3);
         var st2 = new Student("Nikolay", 2, 8.1);
         var st3 = new Student("Elena", 1, 8.9);
@@ -18,5 +20,6 @@ public class StudentsInsert {
         list.add(st3);
         list.add(st4);
         list.add(st5);
+        return list;
     }
 }

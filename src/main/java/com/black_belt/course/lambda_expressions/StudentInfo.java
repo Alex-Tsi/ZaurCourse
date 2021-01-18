@@ -11,9 +11,7 @@ public class StudentInfo {
     StudentCheck check = s -> false;
 
     public static void main(String[] args) {
-        List<Student> stList = new ArrayList<>();
-        StudentsInsert si = new StudentsInsert();
-        si.insert(stList);
+        List<Student> stList = StudentsInsert.insert();
 
         var info = new StudentInfo();
 
