@@ -1,17 +1,17 @@
 package com.black_belt.course.lambda_expressions;
 
+import com.black_belt.course.data.Student;
 import lombok.var;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
+import java.util.function.Function;
 
 public class StudentInfo {
 
     StudentCheck check = s -> false;
 
     public static void main(String[] args) {
-        List<Student> stList = StudentsInsert.insert();
+        List<Student> stList = Student.StudentsInsert.insert();
 
         var info = new StudentInfo();
 
@@ -33,10 +33,22 @@ public class StudentInfo {
 
         info.getStudents(stList, studentCheck);
 
-        Collections.sort(stList, (Student stObj1, Student stObj2) -> {
-                    return (Integer.compare(stObj1.getCourse(), stObj2.getCourse()));   //Или же ((Integer)stObj1.getCourse()).compareTo(stObj2.getCourse())
-                }
+        Collections.sort(stList, (Student stObj1, Student stObj2) ->
+                Integer.compare(stObj1.getCourse(), stObj2.getCourse())   //Или же ((Integer)stObj1.getCourse()).compareTo(stObj2.getCourse())
         );
+        System.out.println(stList);
+        //То же самое
+        Comparator<Student> comparator = Comparator.comparing(student -> student.getAvgGrade());
+        stList.sort(comparator);
+        System.out.println(stList);
+
+
+        stList.sort(Comparator.comparing(new Function<Student, Integer>() {
+            @Override
+            public Integer apply(Student student) {
+                return student.getCourse();
+            }
+        }));
         System.out.println(stList);
     }
 

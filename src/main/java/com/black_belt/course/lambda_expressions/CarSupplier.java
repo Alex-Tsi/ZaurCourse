@@ -1,6 +1,6 @@
 package com.black_belt.course.lambda_expressions;
 
-import lombok.*;
+import com.black_belt.course.data.Car;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,16 +20,5 @@ public class CarSupplier {
         List<Car> cars = createCars(() -> new Car("Toyota", "Green", 3.14));
         for(Car c : cars) System.out.println(c);
     }
-
 }
 
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-@EqualsAndHashCode
-@ToString
-class Car {
-    String model;
-    String color;
-    double engine;
-}

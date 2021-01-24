@@ -1,9 +1,9 @@
 package com.black_belt.course.lambda_expressions;
 
+import com.black_belt.course.data.Animal;
 import lombok.*;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.function.Consumer;
 
@@ -30,13 +30,3 @@ public class AnimalConsumer {
 
 }
 
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-@EqualsAndHashCode
-@ToString
-class Animal {
-    private String name;
-    private String type;
-    private int size;
-}

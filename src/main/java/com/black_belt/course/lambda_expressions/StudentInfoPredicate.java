@@ -1,12 +1,13 @@
 package com.black_belt.course.lambda_expressions;
 
-import java.util.ArrayList;
+import com.black_belt.course.data.Student;
+
 import java.util.List;
 import java.util.function.Predicate;
 
 public class StudentInfoPredicate {
     public static void main(String[] args) {
-        List<Student> stList = StudentsInsert.insert();
+        List<Student> stList = Student.StudentsInsert.insert();
 
         Filter<Student> fi = new Filter<>();
         //fi.getStudents(stList, (s) -> s.getCourse() > 1);
@@ -17,12 +18,12 @@ public class StudentInfoPredicate {
         //fi.getStudents(stList, p1.and(p2));
         fi.getStudents(stList, p1.and(p2));
 
-        System.out.println("Before removeIf");
+ /*       System.out.println("Before removeIf");
         System.out.println(stList);
         getWithPredicate(stList, student -> student.getCourse() > 0);
         System.out.println("------------------------------------------");
         System.out.println("After removeIf");
-        System.out.println(stList);
+        System.out.println(stList);*/
     }
 
     static void getWithPredicate(List<Student> students, Predicate<Student> pr) {
@@ -39,7 +40,6 @@ class Filter<T> {
         }
     }
 }
-
 
 interface Predict<T> {
     boolean test(T t);
