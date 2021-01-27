@@ -1,8 +1,10 @@
 package com.black_belt.course.data;
 
 import lombok.*;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 
@@ -10,14 +12,21 @@ import java.util.List;
 @AllArgsConstructor
 @ToString
 @EqualsAndHashCode
-public class Student {
+public class Student implements Comparable {
     private String name;
     private int course;
     private double avgGrade;
 
+    @Override
+    public int compareTo(@NotNull Object o) {
+        if (!(o instanceof Student)) throw new RuntimeException("Not student");
+        Student s = (Student) o;
+        return Integer.compare(this.getCourse(), s.getCourse());
+    }
+
     public static class StudentsInsert {
 
-       public static List<Student> insert() {
+        public static List<Student> insert() {
             List<Student> list = new ArrayList<>();
             var st1 = new Student("Ivan", 3, 8.3);
             var st2 = new Student("Nikolay", 2, 8.1);

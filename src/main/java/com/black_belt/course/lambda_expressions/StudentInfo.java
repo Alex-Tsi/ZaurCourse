@@ -38,17 +38,15 @@ public class StudentInfo {
         );
         System.out.println(stList);
         //То же самое
-        Comparator<Student> comparator = Comparator.comparing(student -> student.getAvgGrade());
-        stList.sort(comparator);
-        System.out.println(stList);
-
-
-        stList.sort(Comparator.comparing(new Function<Student, Integer>() {
+        Comparator<Student> comparator1 = Comparator.comparing(new Function<Student, Double>() {
             @Override
-            public Integer apply(Student student) {
-                return student.getCourse();
+            public Double apply(Student student) {
+                return student.getAvgGrade();
             }
-        }));
+        });
+        Comparator<Student> comparator2 = Comparator.comparing(student -> student.getAvgGrade());
+        Comparator<Student> comparator3 = Comparator.comparing(Student::getAvgGrade);
+        stList.sort(comparator3);
         System.out.println(stList);
     }
 

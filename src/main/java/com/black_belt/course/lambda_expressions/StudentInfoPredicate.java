@@ -15,15 +15,14 @@ public class StudentInfoPredicate {
         Predict<Student> p1 = student -> student.getCourse() > 1;
         Predict<Student> p2 = student -> student.getName().charAt(0) == 'P';
 
-        //fi.getStudents(stList, p1.and(p2));
         fi.getStudents(stList, p1.and(p2));
 
- /*       System.out.println("Before removeIf");
+        System.out.println("Before removeIf");
         System.out.println(stList);
         getWithPredicate(stList, student -> student.getCourse() > 0);
         System.out.println("------------------------------------------");
         System.out.println("After removeIf");
-        System.out.println(stList);*/
+        System.out.println(stList.isEmpty() ? "Empty" : stList);
     }
 
     static void getWithPredicate(List<Student> students, Predicate<Student> pr) {
@@ -48,7 +47,7 @@ interface Predict<T> {
         return new Predict<T>() {
             @Override
             public boolean test(T t) {
-                return other.test(t) && Predict.this.test(t);
+                return Predict.this.test(t) && other.test(t);
                 /**
                  * Predict.this.test указывает на объект p1. Замыкание происходит на этапе формирования объекта new Predict<T>
                  * this(p1 грубо говоря инициатор создания) с помощью .and и other.
