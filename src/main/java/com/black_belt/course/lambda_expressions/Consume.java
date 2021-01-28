@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
 
-public class AnimalConsumer {
+public class Consume {
     public static void main(String[] args) {
         var an1 = new Animal("Miha", "Tiger", 183);
         var an2 = new Animal("Li", "Lion", 167);
@@ -19,6 +19,7 @@ public class AnimalConsumer {
             animal.setSize(animal.getSize() + 5);
             System.out.println(animal);
         });
+        System.out.println(animals);
     }
 
     static void changeAnimal(List<Animal> animals, Consumer<Animal> con) {

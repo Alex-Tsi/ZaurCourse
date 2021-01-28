@@ -14,7 +14,7 @@ public class SortedStream {
         System.out.println(Arrays.toString(array));
 
         List<Student> list = Student.StudentsInsert.insert();
-//        list = list.stream().sorted(Comparator.comparingInt(Student::getCourse)).collect(Collectors.toList());  //by Comparator
+        list = list.stream().sorted(Comparator.comparingInt(Student::getCourse)).collect(Collectors.toList());  //by Comparator
         //System.out.println(list);
         list = list.stream().sorted().collect(Collectors.toList()); //by Comparable
         System.out.println(list);
