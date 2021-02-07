@@ -8,7 +8,7 @@ public class Interrupt {
         System.out.println("main started");
         InterruptedThread thread = new InterruptedThread();
         thread.start();
-        Thread.sleep(2000);
+        Thread.sleep(1000);
         thread.interrupt();
 
         thread.join();
@@ -22,7 +22,7 @@ class InterruptedThread extends Thread {
 
     @Override
     public void run() {
-        for (int i = 1; i < 1000000; i++) {
+        for (int i = 1; i < 1000000000; i++) {
             if (isInterrupted()) {
                 System.out.println("Поток хотят прервать");
                 System.out.println("Мы убедились, что состояние всех объектов" +

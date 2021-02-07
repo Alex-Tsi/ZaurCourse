@@ -2,8 +2,7 @@ package com.black_belt.course.lambda_expressions;
 
 import com.black_belt.course.data.Car;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 import java.util.function.Supplier;
 
 public class CarSupplier {

@@ -39,7 +39,7 @@ public class SynchronizedBlock {
     @SneakyThrows
     public void mobileCall() {
 //        synchronized (lock) { //т.к. здесь блок кода не синхронизирован, то и метод вызовется без проблем, хоть выше
-        //мьютекс объект занят с помощью synchronized, а тут нет.
+        //мьютекс объекта занят с помощью synchronized, а тут нет.
         System.out.println(this);
         Thread.sleep(2000);
         System.out.println("Mobile call started");

@@ -32,6 +32,7 @@ public class StudentInfoPredicate {
 
 class Filter<T> {
     void getStudents(List<? extends T> list, Predict<T> pr) {
+//        System.out.println(Arrays.toString(pr.getClass().getDeclaredFields()));
         for (T val : list) {
             if (pr.test(val)) {
                 System.out.println(val);
@@ -48,6 +49,7 @@ interface Predict<T> {
             @Override
             public boolean test(T t) {
                 return Predict.this.test(t) && other.test(t);
+
                 /**
                  * Predict.this.test указывает на объект p1. Замыкание происходит на этапе формирования объекта new Predict<T>
                  * this(p1 грубо говоря инициатор создания) с помощью .and и other.

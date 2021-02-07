@@ -17,7 +17,6 @@ public class ChainingStream {
         System.out.println(o.isPresent() ? o.getAsInt() : "Not present");*/
         System.out.println(result);
 
-
         List<Student> studentList = Student.StudentsInsert.insert();
         studentList.stream().map(student -> {
             student.setName(student.getName().toLowerCase());
@@ -29,12 +28,9 @@ public class ChainingStream {
 
         System.out.println("----------------------------------------------------------------------------------");
 
+
         //Лучше писать так
         studentList.stream().peek(student -> student.setName(student.getName().toLowerCase()))
                 .filter(student -> student.getCourse() > 1 && student.getAvgGrade() > 8).forEach(System.out::println);
     }
-}
-
-interface Test<R, T> {
-    R map(T t);
 }

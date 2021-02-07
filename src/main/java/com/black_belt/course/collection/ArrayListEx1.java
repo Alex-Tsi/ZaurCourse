@@ -26,6 +26,7 @@ public class ArrayListEx1 {
         subList.add(new Student(21, "Andrey", 4));
         System.out.println(subList);
         System.out.println(arrayList);
+        arrayList.removeAll(subList);
 
         //arrayList.remove(1);          //Если удалить/добавить то вызовет эксепшн в саб листе
         //System.out.println(arrayList);
